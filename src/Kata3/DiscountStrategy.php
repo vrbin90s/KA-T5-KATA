@@ -13,9 +13,7 @@ class DiscountStrategy
 
     public function setFreeShippingDay(): float
     {
-        $shippingCalculator = new FreeShippingCalculator();
-
-        return $shippingCalculator->calculate(100,20,0);
+        return (new FreeShippingCalculator())->calculate(100,20);
     }
 
 }

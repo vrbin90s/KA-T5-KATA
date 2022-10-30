@@ -11,9 +11,8 @@ use App\Kata1\Shipping;
 class FreeShippingCalculator implements PriceCalculatorInterface
 {
 
-    public function calculate(float $price, float $discount, float $shipping): float
+    public function calculate(float $price, float $discount, float $shipping = null): float|int
     {
-        $shipping = 0;
-        return (new Shipping($shipping, new Discount($discount, new Price($price))))->cost();
+        return (new Discount($discount, new Price($price)))->cost();
     }
 }

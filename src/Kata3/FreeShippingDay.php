@@ -11,17 +11,19 @@ class FreeShippingDay
 {
 
     private DiscountStrategy $discountStrategy;
+    private bool $freeShippingDay;
 
     public function __construct(DiscountStrategy $discountStrategy)
     {
         $this->discountStrategy = $discountStrategy;
+
     }
 
     public function checkFreeShippingDay(bool $freeShippingDay)
     {
+        $this->freeShippingDay = $freeShippingDay;
 
-        if ($freeShippingDay = true) {
-
+        if ($this->freeShippingDay = true) {
             return $this->discountStrategy->setFreeShippingDay();
         }
     }
